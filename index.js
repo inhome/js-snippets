@@ -12,4 +12,9 @@ function uniqueWords(text) {
   });
 }
 
-module.exports = { nonEmptyLines: nonEmptyLines, uniqueWords: uniqueWords };
+function escapeHtml(text) {
+  var entities = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
+  return String(text).replace(/[&<>"']/g, function (character) { return entities[character]; });
+}
+
+module.exports = { nonEmptyLines: nonEmptyLines, uniqueWords: uniqueWords, escapeHtml: escapeHtml };

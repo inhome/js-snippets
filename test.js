@@ -8,3 +8,6 @@ assert.deepStrictEqual(lib.nonEmptyLines("  "), []);
 assert.deepStrictEqual(lib.uniqueWords("a b a __proto__"), ["a", "b", "__proto__"]);
 assert.deepStrictEqual(lib.uniqueWords(""), []);
 
+assert.strictEqual(lib.escapeHtml("<a>&"), "&lt;a&gt;&amp;");
+assert.strictEqual(lib.escapeHtml("plain"), "plain");
+
