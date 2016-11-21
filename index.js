@@ -17,4 +17,9 @@ function escapeHtml(text) {
   return String(text).replace(/[&<>"']/g, function (character) { return entities[character]; });
 }
 
-module.exports = { nonEmptyLines: nonEmptyLines, uniqueWords: uniqueWords, escapeHtml: escapeHtml };
+function limitText(text, maximum) {
+  if (maximum < 0 || maximum % 1 !== 0) throw new RangeError("Invalid maximum");
+  return Array.from(String(text)).slice(0, maximum).join("");
+}
+
+module.exports = { nonEmptyLines: nonEmptyLines, uniqueWords: uniqueWords, escapeHtml: escapeHtml, limitText: limitText };

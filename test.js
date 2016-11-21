@@ -11,3 +11,7 @@ assert.deepStrictEqual(lib.uniqueWords(""), []);
 assert.strictEqual(lib.escapeHtml("<a>&"), "&lt;a&gt;&amp;");
 assert.strictEqual(lib.escapeHtml("plain"), "plain");
 
+assert.strictEqual(lib.limitText("a😀b", 2), "a😀");
+assert.strictEqual(lib.limitText("abc", 0), "");
+assert.throws(function () { lib.limitText("a", -1); }, RangeError);
+
